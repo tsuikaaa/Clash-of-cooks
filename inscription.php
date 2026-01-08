@@ -59,9 +59,9 @@ session_start();
           <?php if (isset($_GET['err'])): ?>
             <p class="msg error">
               <?php
-              if ($_GET['err'] === 'login')     echo 'Mail ou mot de passe incorrect.';
-              if ($_GET['err'] === 'inscription') echo 'Tous les champs sont obligatoires et les mots de passe doivent correspondre.';
-              if ($_GET['err'] === 'mail')      echo 'Un compte existe déjà avec ce mail.';
+              if ($_GET['err'] === 'login')        echo 'Mail ou mot de passe incorrect.';
+              if ($_GET['err'] === 'inscription')  echo 'Tous les champs sont obligatoires et les mots de passe doivent correspondre.';
+              if ($_GET['err'] === 'mail')         echo 'Un compte existe déjà avec ce mail.';
               ?>
             </p>
           <?php elseif (isset($_GET['ok']) && $_GET['ok'] === 'inscription'): ?>
@@ -71,22 +71,36 @@ session_start();
           <!-- FORM CONNEXION -->
           <form id="form-login" class="form-block" action="auth.php" method="post">
             <input type="hidden" name="action" value="login">
+
             <label>adresse mail</label>
             <input type="email" name="mail" required>
+
             <label>mot de passe</label>
             <input type="password" name="mdp" required>
+
             <button class="signup-submit" type="submit">Se connecter</button>
           </form>
 
           <!-- FORM INSCRIPTION -->
-          <form id="form-register" class="form-block hidden" action="auth.php" method="post">
+          <form id="form-register" class="form-block hidden"
+                action="auth.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="action" value="register">
+
             <label>adresse mail</label>
             <input type="email" name="mail" required>
+
+            <label>pseudo</label>
+            <input type="text" name="pseudo" required>
+
+            <label>photo de profil</label>
+            <input type="file" name="pp" accept="image/*" required>
+
             <label>mot de passe</label>
             <input type="password" name="mdp" required>
+
             <label>confirmer le mot de passe</label>
             <input type="password" name="mdp2" required>
+
             <button class="signup-submit" type="submit">S'inscrire</button>
           </form>
 
@@ -108,8 +122,8 @@ session_start();
       </div>
 
       <div class="footer-links">
-        <a href="#">mentions légales</a><br>
-        <a href="#">plan du site</a><br>
+        <a href="#">Mentions légales</a><br>
+        <a href="#">Plan du site</a><br>
         <a href="#">A propos de nous</a>
       </div>
     </section>
