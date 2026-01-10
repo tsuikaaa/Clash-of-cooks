@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 08 jan. 2026 à 03:11
+-- Généré le : sam. 10 jan. 2026 à 19:01
 -- Version du serveur : 9.1.0
 -- Version de PHP : 8.3.14
 
@@ -61,7 +61,7 @@ DROP TABLE IF EXISTS `profils`;
 CREATE TABLE IF NOT EXISTS `profils` (
   `mail` varchar(50) NOT NULL,
   `id_profil` int NOT NULL AUTO_INCREMENT,
-  `mdp` varchar(50) NOT NULL,
+  `mdp` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `pseudo` varchar(100) NOT NULL,
   `description` varchar(100) NOT NULL,
   `pp` varchar(100) NOT NULL,
@@ -69,7 +69,15 @@ CREATE TABLE IF NOT EXISTS `profils` (
   `recettes_faites` int NOT NULL,
   PRIMARY KEY (`id_profil`),
   KEY `recettes_faites` (`recettes_faites`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `profils`
+--
+
+INSERT INTO `profils` (`mail`, `id_profil`, `mdp`, `pseudo`, `description`, `pp`, `nb_victoire`, `recettes_faites`) VALUES
+('ansem@gmail.com', 2, '$2y$10$7AatwqRKX1N2dkKA.Ae76.rTbOwX5swjwwbjwy/k5MKCIwEQGYJpS', 'Seeker_of_darkness', '', 'pp_69629bbf498cf.png', 0, 0),
+('debo@gmail.com', 3, '$2y$10$hD9.SS.ovVWwZcoQI5Ho0u8Jgyvnyc17zveLoVvzdVZCzKhIL1QaC', 'deb', '', 'pp_6962a0db0adc1.jpg', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -90,7 +98,15 @@ CREATE TABLE IF NOT EXISTS `recettes` (
   PRIMARY KEY (`id_recette`),
   KEY `fk_pseudo` (`fk_pseudo`),
   KEY `fk_theme` (`fk_theme`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `recettes`
+--
+
+INSERT INTO `recettes` (`nom`, `description`, `img`, `date_post`, `fk_pseudo`, `id_recette`, `nb_votes`, `fk_theme`) VALUES
+('omelette des rêves', 'Une omelette à couper le souffle ! ', 'img/food_pics/omelette_original.webp', '2026-01-10', 2, 1, 0, 1),
+('omelette étoilée', 'Une omelette qui vous mettra des étoiles dans les yeux !!', 'img/food_pics/omelette_etoile.webp', '2026-01-10', 3, 2, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -107,7 +123,14 @@ CREATE TABLE IF NOT EXISTS `themes` (
   `fk_recettes_post_pour` int NOT NULL,
   PRIMARY KEY (`id_theme`),
   KEY `fk_recettes_post_pour` (`fk_recettes_post_pour`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `themes`
+--
+
+INSERT INTO `themes` (`nom_theme`, `description_theme`, `img_theme`, `id_theme`, `fk_recettes_post_pour`) VALUES
+('Omelette', 'Une omelette moelleuse constitue un classique incontournable de la cuisine, apprécié pour sa simplicité et sa versatilité. Que vous la préfériez nature, garnie de fromage, de légumes ou de viande, l’omelette se prête à toutes les envies.', 'img/food_pics/omelette_theme.png', 1, 0);
 
 --
 -- Contraintes pour les tables déchargées

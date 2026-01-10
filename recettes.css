@@ -1,0 +1,341 @@
+/* Import Google Font Chewy */
+@import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
+
+/* Variables */
+:root {
+  --jaune-bg: #f6e9a4;
+  --marron-fonce: #3b2314;
+  --rouge-bouton: #8b1f2a;
+  --beige-footer: #d0b482;
+  --beige-footer-fonce: #b5925b;
+}
+
+/* Police par défaut du site */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--jaune-bg);
+  font-family: "Quicksand", Arial, sans-serif;
+  color: var(--marron-fonce);
+}
+
+/* Titres avec Chewy */
+h1, h2, h3, .titre-chewy {
+  font-family: "Chewy", cursive;
+  letter-spacing: 1px;
+}
+
+/* Bandeau grec */
+.greek-border {
+  width: 100%;
+  height: 52px;                 /* hauteur de ta frise */
+  background-image: url("img/greek-stripes.png");
+  background-repeat: repeat-x;  /* répète seulement en horizontal */
+  background-position: center;
+  background-size: auto 52px;   /* ajuste si besoin à la hauteur */
+  border-bottom: 2px solid var(--marron-fonce);
+}
+
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  background-color: #fff7dd;
+  border-bottom: 2px solid var(--marron-fonce);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid var(--marron-fonce);
+  background-color: var(--jaune-bg);
+}
+
+.top-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-rect {
+  padding: 8px 14px;
+  background-color: var(--rouge-bouton);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-rect.beige {
+  background-color: #f1d49b;
+  color: var(--marron-fonce);
+}
+
+.clock {
+  padding: 6px 12px;
+  border: 2px solid var(--marron-fonce);
+  border-radius: 4px;
+  font-weight: 600;
+  background-color: #fff7dd;
+}
+
+/* Contenu principal */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 20px 60px;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 25px 0 10px;
+}
+
+.clock-big {
+  margin: 0 auto 40px;
+  width: 200px;
+  text-align: center;
+  padding: 15px 10px;
+  border: 3px solid var(--marron-fonce);
+  border-radius: 6px;
+  font-weight: 700;
+  background-color: #fff7dd;
+}
+
+.bloc-consignes {
+  margin: 0 auto 40px;
+  max-width: 650px;
+  background-color: #fff7dd;
+  border: 2px solid var(--marron-fonce);
+  border-radius: 6px;
+  padding: 15px 20px;
+}
+
+.bloc-consignes label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.bloc-consignes textarea {
+  width: 100%;
+  min-height: 80px;
+  border: none;
+  border-top: 1px solid var(--marron-fonce);
+  border-bottom: 1px solid var(--marron-fonce);
+  background-color: transparent;
+  padding: 8px 4px;
+  font-family: "Quicksand", Arial, sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  resize: none;
+}
+
+.section-recettes-titre {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 40px 0 30px;
+}
+
+/* image | bloc lignes | bouton | barre */
+.liste-recettes {
+  display: grid;
+  grid-template-columns: 220px 1fr 120px 10px;
+  column-gap: 30px;
+  row-gap: 35px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto 40px;
+}
+
+/* images */
+.miniature {
+  width: 220px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 3px solid var(--marron-fonce);
+}
+
+/* lignes façon cahier */
+.recette-lignes {
+  border: none;
+  padding: 0 0 10px;
+  line-height: 1.5;
+}
+
+/* nom de la recette un peu plus grand et gras */
+.recette-titre {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* description un peu plus petite */
+.recette-desc {
+  font-size: 0.95rem;
+}
+
+
+/* bouton voir */
+.btn-voir {
+  width: 120px;
+  padding: 10px 0;
+  font-size: 1rem;
+}
+
+/* barre verticale à droite */
+.separateur-vert {
+  grid-column: 4;
+  grid-row: 1 / -1;              /* prend toute la hauteur des recettes */
+  width: 4px;
+  height: 100%;
+  background-color: #f2f7e1;
+  border-radius: 999px;
+  border: 2px solid var(--marron-fonce);
+}
+
+
+
+/* Footer type Colisée */
+/* colisée + footer */
+.colosseum {
+  background-color: #d3a96c;
+  padding: 40px 0 30px;
+  border-top: 4px solid #3b2413;
+  margin-top: 60px;
+}
+
+.arches-row {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  margin: 10px auto;
+  max-width: 520px;
+}
+
+.arch {
+  width: 42px;
+  height: 60px;
+  background-color: #4e1111;
+  border-radius: 50% 50% 5px 5px;
+}
+
+.footer-links {
+  text-align: center;
+  margin-top: 30px;
+  font-family: "Stick", cursive;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.footer-links a {
+  color: #3b2413;
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .liste-recettes {
+    grid-template-columns: 1fr;
+  }
+
+  .separateur-vert {
+    display: none;
+  }
+
+  .miniature {
+    width: 100%;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-vote {
+  position: relative;
+  width: 500px;
+  background-color: #fff7dd;
+  border: 4px solid var(--marron-fonce);
+  padding: 25px 35px 20px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.modal-greek {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  width: 60px;
+  height: 20px;
+  background-image: url("img/greek-stripes.png");
+  background-repeat: repeat-x;
+  background-size: auto 20px;
+}
+
+.modal-title {
+  text-align: center;
+  margin: 10px 0 20px;
+  font-family: "Chewy", cursive;
+  font-size: 1.7rem;
+}
+
+.modal-content {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.modal-img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 3px solid var(--marron-fonce);
+}
+
+.modal-libelle {
+  font-size: 1rem;
+  margin: 0 0 8px;
+}
+
+.modal-desc {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+}
